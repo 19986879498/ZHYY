@@ -1,0 +1,6 @@
+{
+  "OracleDB": {
+    "Write": "Data Source=ORCL;User ID=test;Password=admin",
+    "Read": "Data Source=orcl;User ID=testcong;Password=admin|Data Source=orcl;User ID=testcong2;Password=admin"
+  }
+}

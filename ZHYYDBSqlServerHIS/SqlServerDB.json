@@ -1,0 +1,5 @@
+{
+  "Write": "Data Source=.;Initial Catalog=ZHYY;Integrated Security=True",
+  "Read": "Data Source=.;Initial Catalog=ZHYY1;Integrated Security=True|Data Source=.;Initial Catalog=ZHYY2;Integrated Security=True|Data Source=.;Initial Catalog=ZHYY3;Integrated Security=True",
+  "QZ": "1|2|3"
+}

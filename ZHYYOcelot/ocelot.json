@@ -1,0 +1,45 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/{url}", //下流服务获取的路径
+      "DownstreamScheme": "http", //使用http协议
+      "UpstreamPathTemplate": "/Registion/{url}", //上流请求的路径
+      "UpstreamHttpMethod": [ "Get", "Post" ], //http服务请求的方式
+      "ServiceName": "Registion", //consul服务名称
+      "UseServiceDiscovery": true, //是否启动服务发现
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询      LeastConnection-最少连接数的服务器   NoLoadBalance不负载均衡
+      },
+      //identityserver4鉴权中心的配置
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "RegisterKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/{url}", //下流服务获取的路径
+      "DownstreamScheme": "http", //使用http协议
+      "UpstreamPathTemplate": "/Outpatient/{url}", //上流请求的路径
+      "UpstreamHttpMethod": [ "Get", "Post" ], //http服务请求的方式
+      "ServiceName": "Outpatient", //consul服务名称
+      "UseServiceDiscovery": true, //是否启动服务发现
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询      LeastConnection-最少连接数的服务器   NoLoadBalance不负载均衡
+      }, 
+      //identityserver4鉴权中心的配置
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OutpatientKey",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  //配置Consul
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  },
+  "GateWayUrlPort": 8000
+}
